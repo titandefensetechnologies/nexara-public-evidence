@@ -1,0 +1,46 @@
+{
+  "evidence_type": "NEXARA_STEP15_EXPERIMENTAL_NIEM6_MAPPING",
+  "recorded_at": "2026-09-27T01:13:21.095971Z",
+  "profile": "niem6-experimental-xml/0.1",
+  "niem_core_namespace": "https://docs.oasis-open.org/niemopen/ns/model/niem-core/6.0/",
+  "profile_status": "EXPERIMENTAL_NOT_NIEM_6_CONFORMANT",
+  "all_local_checks_passed": true,
+  "cases": [
+    {
+      "source_format": "json",
+      "source_file": "scenarios/step1/source-a.json",
+      "source_message_id": "A-0001",
+      "wire_bytes": 977,
+      "wire_sha256": "1e8bc93ce0bc39d660bd5a97229b3ed135ae1e76dcbf2e1871d81196c544599f",
+      "semantic_round_trip": true,
+      "provenance_round_trip": true
+    },
+    {
+      "source_format": "xml",
+      "source_file": "scenarios/step1/source-b.xml",
+      "source_message_id": "B-0001",
+      "wire_bytes": 985,
+      "wire_sha256": "af86a2be920973e9dff781511c9a0ef9b397037555a34145e90febd7f93c448a",
+      "semantic_round_trip": true,
+      "provenance_round_trip": true
+    },
+    {
+      "source_format": "coie",
+      "source_file": "scenarios/step1/source-c.coie",
+      "source_message_id": "C-0001",
+      "wire_bytes": 977,
+      "wire_sha256": "95e4dc498718f45af6b4fa8b85017defa0af67e62136d550dce60f6d47a53e77",
+      "semantic_round_trip": true,
+      "provenance_round_trip": true
+    }
+  ],
+  "authoritative_niem6_reference_schema_validation": "NOT_RUN",
+  "niem6_iepd_validation": "NOT_RUN",
+  "independent_conformance_review": "NOT_RUN",
+  "external_compliance_claimed": false,
+  "sources": [
+    "https://docs.oasis-open.org/niemopen/niem-model/v6.0/os/niem-model-v6.0-os.html",
+    "https://docs.oasis-open.org/niemopen/niem-model/v6.0/os/xsd/niem-core.xsd"
+  ],
+  "limitation": "Bidirectional experimental exchange using a NIEM 6 Core identification component and a NEXARA extension. No authoritative IEPD/schema validation or NIEM conformance claim."
+}

@@ -1,0 +1,212 @@
+{
+  "evidence_type": "NEXARA_SEPARATE_PROCESS_LAB_VALIDATION",
+  "recorded_at": "2026-09-27T01:13:21.219093Z",
+  "runtime": {
+    "python": "3.12.14",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python"
+  },
+  "source_sha256": {
+    "controller": "e3cf66ba7c55184373563bac9119870b8b4ff750368e4a41974c99d7614d34b4",
+    "worker": "1f337d7c6b3c53ad8cd28bce4d8dbef2f4355d1b3c8e0158290e08462df894b3"
+  },
+  "transport": "newline-delimited JSON over local process pipes; no RF hardware or network interface",
+  "storage": "two independent SQLite files in a temporary directory, deleted after completion",
+  "passed": true,
+  "checks": {
+    "separate_processes": true,
+    "three_input_formats": true,
+    "baseline_converged": true,
+    "offline_diverged_without_transfer": true,
+    "restart_preserved_both_states": true,
+    "both_deltas_exchanged": true,
+    "final_converged": true,
+    "conflicts_preserved_on_both_nodes": true,
+    "provenance_preserved_on_both_nodes": true,
+    "retry_idempotent": true
+  },
+  "baseline": {
+    "NEXARA-01": {
+      "conflict_types": [],
+      "digest": "efbcbe402c4ced6b8acfcea9845ad2c908dd39cffd804f06971997a27acaf5df",
+      "inventory": [
+        "synthetic-A:A-0001",
+        "synthetic-B:B-0001",
+        "synthetic-C:C-0001"
+      ],
+      "node": "NEXARA-01",
+      "observations": 3,
+      "pid": 7,
+      "sources": [
+        "synthetic-A",
+        "synthetic-B",
+        "synthetic-C"
+      ]
+    },
+    "NEXARA-02": {
+      "conflict_types": [],
+      "digest": "efbcbe402c4ced6b8acfcea9845ad2c908dd39cffd804f06971997a27acaf5df",
+      "inventory": [
+        "synthetic-A:A-0001",
+        "synthetic-B:B-0001",
+        "synthetic-C:C-0001"
+      ],
+      "node": "NEXARA-02",
+      "observations": 3,
+      "pid": 8,
+      "sources": [
+        "synthetic-A",
+        "synthetic-B",
+        "synthetic-C"
+      ]
+    }
+  },
+  "offline_before_restart": {
+    "NEXARA-01": {
+      "conflict_types": [],
+      "digest": "590a1ec58a21eb63825fc8e4e347e27a3c40e4ced9b609299edbbfa07793fc1d",
+      "inventory": [
+        "node-a-local:A-STEP17",
+        "synthetic-A:A-0001",
+        "synthetic-B:B-0001",
+        "synthetic-C:C-0001"
+      ],
+      "node": "NEXARA-01",
+      "observations": 4,
+      "pid": 7,
+      "sources": [
+        "node-a-local",
+        "synthetic-A",
+        "synthetic-B",
+        "synthetic-C"
+      ]
+    },
+    "NEXARA-02": {
+      "conflict_types": [],
+      "digest": "852c3612b9eef079012ab799a4da546632fa992afe26c8cc1a6fd1398b32246d",
+      "inventory": [
+        "node-b-local:B-STEP17",
+        "synthetic-A:A-0001",
+        "synthetic-B:B-0001",
+        "synthetic-C:C-0001"
+      ],
+      "node": "NEXARA-02",
+      "observations": 4,
+      "pid": 8,
+      "sources": [
+        "node-b-local",
+        "synthetic-A",
+        "synthetic-B",
+        "synthetic-C"
+      ]
+    }
+  },
+  "offline_after_restart": {
+    "NEXARA-01": {
+      "conflict_types": [],
+      "digest": "590a1ec58a21eb63825fc8e4e347e27a3c40e4ced9b609299edbbfa07793fc1d",
+      "inventory": [
+        "node-a-local:A-STEP17",
+        "synthetic-A:A-0001",
+        "synthetic-B:B-0001",
+        "synthetic-C:C-0001"
+      ],
+      "node": "NEXARA-01",
+      "observations": 4,
+      "pid": 9,
+      "sources": [
+        "node-a-local",
+        "synthetic-A",
+        "synthetic-B",
+        "synthetic-C"
+      ]
+    },
+    "NEXARA-02": {
+      "conflict_types": [],
+      "digest": "852c3612b9eef079012ab799a4da546632fa992afe26c8cc1a6fd1398b32246d",
+      "inventory": [
+        "node-b-local:B-STEP17",
+        "synthetic-A:A-0001",
+        "synthetic-B:B-0001",
+        "synthetic-C:C-0001"
+      ],
+      "node": "NEXARA-02",
+      "observations": 4,
+      "pid": 10,
+      "sources": [
+        "node-b-local",
+        "synthetic-A",
+        "synthetic-B",
+        "synthetic-C"
+      ]
+    }
+  },
+  "reconciliation": {
+    "left_to_right_changes": 1,
+    "right_to_left_changes": 1,
+    "left_to_right_application_bytes": 561,
+    "right_to_left_application_bytes": 562
+  },
+  "final": {
+    "NEXARA-01": {
+      "conflict_types": [
+        "POSITION_DISAGREEMENT",
+        "STATUS_DISAGREEMENT"
+      ],
+      "digest": "3794eca732409e3c45861989fed2f9476e39cecb706f9d9d8ee15c86c194e302",
+      "inventory": [
+        "node-a-local:A-STEP17",
+        "node-b-local:B-STEP17",
+        "synthetic-A:A-0001",
+        "synthetic-B:B-0001",
+        "synthetic-C:C-0001"
+      ],
+      "node": "NEXARA-01",
+      "observations": 5,
+      "pid": 9,
+      "sources": [
+        "node-a-local",
+        "node-b-local",
+        "synthetic-A",
+        "synthetic-B",
+        "synthetic-C"
+      ]
+    },
+    "NEXARA-02": {
+      "conflict_types": [
+        "POSITION_DISAGREEMENT",
+        "STATUS_DISAGREEMENT"
+      ],
+      "digest": "3794eca732409e3c45861989fed2f9476e39cecb706f9d9d8ee15c86c194e302",
+      "inventory": [
+        "node-a-local:A-STEP17",
+        "node-b-local:B-STEP17",
+        "synthetic-A:A-0001",
+        "synthetic-B:B-0001",
+        "synthetic-C:C-0001"
+      ],
+      "node": "NEXARA-02",
+      "observations": 5,
+      "pid": 10,
+      "sources": [
+        "node-a-local",
+        "node-b-local",
+        "synthetic-A",
+        "synthetic-B",
+        "synthetic-C"
+      ]
+    }
+  },
+  "retry": {
+    "left_to_right_changes": 0,
+    "right_to_left_changes": 0,
+    "left_to_right_application_bytes": 2,
+    "right_to_left_application_bytes": 2
+  },
+  "limitations": [
+    "Synthetic non-sensitive source messages",
+    "Two processes on one computer",
+    "No physical RF link or hardware",
+    "No external standards conformance or independent TRL evaluation"
+  ]
+}

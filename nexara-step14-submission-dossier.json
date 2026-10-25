@@ -1,0 +1,242 @@
+{
+  "evidence_type": "NEXARA_LABORATORY_EVALUATOR_SUBMISSION_DOSSIER",
+  "schema_version": "nexara.submission/0.1",
+  "recorded_at": "2026-09-27T01:13:28.676599Z",
+  "product": "NEXARA (working name; trademark clearance pending)",
+  "company": "Titan Defense Technologies",
+  "challenge": "RF data fusion for command and control",
+  "evidence_scope": "Laboratory proof of concept using synthetic non-sensitive data and simulated RF-link conditions",
+  "trl_position": "TRL 4 candidate: integrated software subsystem validated in a laboratory; independent evaluation pending",
+  "trl_assessment_artifact": "evidence/nexara-step16-trl4-assessment.json",
+  "internally_ready_for_proposal": true,
+  "measured_claims": {
+    "automated_tests": {
+      "command": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -W error::ResourceWarning -m unittest discover -s tests -v",
+      "passed": true,
+      "tests_run": 86,
+      "return_code": 0,
+      "summary": "Ran 86 tests in 7.304s"
+    },
+    "requirements_coverage": {
+      "total_requirements": 9,
+      "status_counts": {
+        "DEMONSTRATED_LAB": 7,
+        "DESIGNED_NOT_VALIDATED": 0,
+        "EXTERNAL_DEPENDENCY": 0,
+        "PARTIAL": 2,
+        "PLANNED": 0
+      },
+      "by_category": {
+        "ESSENTIAL": {
+          "DEMONSTRATED_LAB": 3,
+          "DESIGNED_NOT_VALIDATED": 0,
+          "EXTERNAL_DEPENDENCY": 0,
+          "PARTIAL": 2,
+          "PLANNED": 0
+        },
+        "DESIRED": {
+          "DEMONSTRATED_LAB": 4,
+          "DESIGNED_NOT_VALIDATED": 0,
+          "EXTERNAL_DEPENDENCY": 0,
+          "PARTIAL": 0,
+          "PLANNED": 0
+        }
+      },
+      "essential_fully_demonstrated": false,
+      "desired_fully_demonstrated": true,
+      "essential_count": 5,
+      "desired_count": 4
+    },
+    "guided_ddil_scenario": {
+      "complete": true,
+      "stages_recorded": 8,
+      "missing_stages": [],
+      "disconnected_queued": 4,
+      "disconnected_delivered": 0,
+      "intermittent_delivered": 3,
+      "intermittent_dropped": 1,
+      "final_converged": true,
+      "conflicts_preserved": 8,
+      "left_to_right_delta_changes": 1,
+      "right_to_left_delta_changes": 1
+    },
+    "pan_domain": {
+      "cases": 6,
+      "accepted": 6,
+      "domains": [
+        "air",
+        "cyber",
+        "joint",
+        "land",
+        "maritime",
+        "space"
+      ],
+      "services": [
+        "C2",
+        "intelligence",
+        "logistics",
+        "medical"
+      ],
+      "all_preserved": true
+    },
+    "deterministic_replay": {
+      "messages": 250,
+      "first_digest": "094e337eb193197b0e800a6d936f9a7b4ba95707e9dd224ec5fe04627d1c0e50",
+      "second_digest": "094e337eb193197b0e800a6d936f9a7b4ba95707e9dd224ec5fe04627d1c0e50",
+      "identical": true
+    },
+    "largest_load_case": {
+      "messages": 5000,
+      "elapsed_ms": 717.597,
+      "throughput_messages_per_second": 6967.702,
+      "mean_ingest_latency_ms": 0.142234,
+      "p95_ingest_latency_ms": 0.175627,
+      "peak_memory_bytes": 258142,
+      "accepted": 5000,
+      "errors": 0
+    },
+    "bounded_profile_checks": {
+      "passed": true,
+      "profiles_assessed": 5,
+      "external_certification_claimed": false
+    }
+  },
+  "challenge_outcomes": [
+    {
+      "id": "IDEAS-E01",
+      "category": "ESSENTIAL",
+      "status": "DEMONSTRATED_LAB",
+      "demonstration": "Launch local service and dashboard.",
+      "evidence": [
+        "nexara/api.py",
+        "tests/test_vertical_slice.py",
+        "dashboard/index.html"
+      ],
+      "limitation": "Laboratory Python package; production packaging and deployment hardening remain."
+    },
+    {
+      "id": "IDEAS-E02",
+      "category": "ESSENTIAL",
+      "status": "DEMONSTRATED_LAB",
+      "demonstration": "Run synthetic pan-domain validation.",
+      "evidence": [
+        "nexara/validation.py",
+        "tests/test_step9_validation.py",
+        "evidence/nexara-step9-evidence.json"
+      ],
+      "limitation": "Synthetic coverage only; no operational DND/CAF validation."
+    },
+    {
+      "id": "IDEAS-E03",
+      "category": "ESSENTIAL",
+      "status": "PARTIAL",
+      "demonstration": "Run bounded positive/negative profile tests semantic/provenance round trips and generate a claim-boundary report.",
+      "evidence": [
+        "nexara/standards.py",
+        "nexara/conformance.py",
+        "tests/test_step5_standards.py",
+        "tests/test_step12_conformance.py",
+        "docs/standards-profiles-v0.1.md",
+        "docs/standards-conformance-plan-v0.1.md",
+        "docs/openapi-v0.1.yaml",
+        "evidence/nexara-step12-conformance.json"
+      ],
+      "limitation": "NEXARA experimental profiles pass bounded internal checks; authoritative sponsor-selected MTF-XML NIEM and NCDF artifacts plus independent conformance review remain required."
+    },
+    {
+      "id": "IDEAS-E04",
+      "category": "ESSENTIAL",
+      "status": "DEMONSTRATED_LAB",
+      "demonstration": "Ingest JSON XML and synthetic COIE through one registry.",
+      "evidence": [
+        "nexara/adapters.py",
+        "tests/test_step1_normalization.py",
+        "scenarios/step1/source-c.coie"
+      ],
+      "limitation": "COIE grammar is synthetic and requires validation against an authoritative operational profile."
+    },
+    {
+      "id": "IDEAS-E05",
+      "category": "ESSENTIAL",
+      "status": "PARTIAL",
+      "demonstration": "Run repeatable DDIL scenario and inspect OpenAPI contract.",
+      "evidence": [
+        "docs/openapi-v0.1.yaml",
+        "nexara/scenario.py",
+        "tests/test_step7_scenario.py",
+        "nexara/standards.py"
+      ],
+      "limitation": "Experimentation and simulation are demonstrated; external wargaming integration and certified standards exchange remain unvalidated."
+    },
+    {
+      "id": "IDEAS-D01",
+      "category": "DESIRED",
+      "status": "DEMONSTRATED_LAB",
+      "demonstration": "Run outage divergence reconnection convergence 4 Kbps and load tests.",
+      "evidence": [
+        "nexara/sync.py",
+        "nexara/network.py",
+        "tests/test_step3_sync.py",
+        "tests/test_step4_network.py",
+        "evidence/nexara-step9-evidence.json"
+      ],
+      "limitation": "Laboratory simulation only; representative RF bearer and distributed hardware validation remain."
+    },
+    {
+      "id": "IDEAS-D02",
+      "category": "DESIRED",
+      "status": "DEMONSTRATED_LAB",
+      "demonstration": "Operate bilingual dashboard and run challenge demo.",
+      "evidence": [
+        "dashboard/index.html",
+        "tests/test_step6_dashboard.py",
+        "tests/test_step7_scenario.py"
+      ],
+      "limitation": "Formal usability and accessibility testing remain."
+    },
+    {
+      "id": "IDEAS-D03",
+      "category": "DESIRED",
+      "status": "DEMONSTRATED_LAB",
+      "demonstration": "Generate Prometheus metrics and Splunk HEC envelope.",
+      "evidence": [
+        "docs/openapi-v0.1.yaml",
+        "nexara/observability.py",
+        "tests/test_step5_standards.py"
+      ],
+      "limitation": "Envelope generation is tested locally; connection to an external Splunk deployment remains."
+    },
+    {
+      "id": "IDEAS-D04",
+      "category": "DESIRED",
+      "status": "DEMONSTRATED_LAB",
+      "demonstration": "Request an explainable priority advisory and verify authoritative state remains unchanged.",
+      "evidence": [
+        "nexara/advisory.py",
+        "tests/test_step11_advisory.py",
+        "scripts/run_step11_advisory.py"
+      ],
+      "limitation": "The boundary uses deterministic rules for demonstration; no external AI/ML model is integrated or claimed."
+    }
+  ],
+  "external_validation_gaps": [
+    "IDEAS-E03: NEXARA experimental profiles pass bounded internal checks; authoritative sponsor-selected MTF-XML NIEM and NCDF artifacts plus independent conformance review remain required.",
+    "IDEAS-E05: Experimentation and simulation are demonstrated; external wargaming integration and certified standards exchange remain unvalidated."
+  ],
+  "prohibited_overclaims": [
+    "No MTF-XML, NIEM, or NCDF external certification is claimed.",
+    "No operational CAF validation, security accreditation, procurement, or endorsement is claimed.",
+    "No representative military radio or classified-data testing is claimed.",
+    "Laboratory throughput is not represented as deployed tactical-network performance."
+  ],
+  "proposed_next_phase": {
+    "objective": "Advance the integrated laboratory software subsystem toward a near-desired prototype with authoritative standards implementation and representative integration testing.",
+    "work_packages": [
+      "Acquire sponsor-selected authoritative MTF-XML, NIEM, NCDF, and COIE profiles and perform independent conformance review.",
+      "Extend the process-isolated NEXARA nodes to separate computers with a representative tactical-network or RF-bearer test environment.",
+      "Connect a documented external simulation or wargaming environment through the published API and exchange adapters.",
+      "Conduct independent security, usability, accessibility, performance, and failure-recovery validation.",
+      "Refine deployment packaging, enterprise identity, key management, telemetry, and sustainment architecture."
+    ]
+  }
+}

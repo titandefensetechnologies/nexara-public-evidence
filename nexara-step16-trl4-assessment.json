@@ -1,0 +1,50 @@
+{
+  "evidence_type": "NEXARA_INTERNAL_TRL4_LABORATORY_ASSESSMENT",
+  "recorded_at": "2026-09-27T01:13:28.675966Z",
+  "reference": "https://www.canada.ca/en/department-national-defence/programs/defence-ideas/technology-readiness-level.html",
+  "assessment_scope": "Integrated NEXARA software components on one computer, including two separate processes with independent SQLite databases, using synthetic non-sensitive data and simulated link conditions.",
+  "position": "TRL 4 candidate: integrated software subsystem validated in a laboratory; independent evaluation pending",
+  "internal_trl4_supported": true,
+  "checks": [
+    {
+      "criterion": "Integrated software verified by automated tests",
+      "passed": true,
+      "evidence": "evidence/nexara-step10-evidence.json"
+    },
+    {
+      "criterion": "Three formats mapped into the same canonical system and exchanged without loss of meaning or provenance",
+      "passed": true,
+      "evidence": "evidence/nexara-step15-niem6.json"
+    },
+    {
+      "criterion": "Integrated nodes process locally during outage and converge after reconnection",
+      "passed": true,
+      "evidence": "evidence/nexara-step14-guided-scenario.json"
+    },
+    {
+      "criterion": "Laboratory cases preserve domain/service values and replay is repeatable",
+      "passed": true,
+      "evidence": "evidence/nexara-step9-evidence.json"
+    },
+    {
+      "criterion": "Bounded internal format checks pass without claiming external certification",
+      "passed": true,
+      "evidence": "evidence/nexara-step12-conformance.json"
+    },
+    {
+      "criterion": "Two process-isolated nodes preserve offline state through restart and reconcile without loss of conflicts or provenance",
+      "passed": true,
+      "evidence": "evidence/nexara-step17-process-validation.json"
+    }
+  ],
+  "limitations": [
+    "Process-isolated nodes are exercised on one computer over local JSON pipes; physical-node and actual network tests remain future work.",
+    "DDIL link conditions are simulated; this is not a representative military RF hardware test.",
+    "NIEM 6 mapping is experimental; MTF-XML, NIEM and NCDF external conformance are not established.",
+    "No DND/CAF operational validation, security accreditation, or independent TRL assessment is claimed."
+  ],
+  "separate_challenge_gaps": [
+    "IDEAS-E03: authoritative sponsor-selected standards profiles and validation are outstanding.",
+    "IDEAS-E05: external simulation or wargaming integration remains outstanding."
+  ]
+}
